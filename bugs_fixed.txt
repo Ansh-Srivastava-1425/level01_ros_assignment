@@ -10,3 +10,18 @@ File: testbed_description/launch/robot_description.launch.py
 Problem: robot_state_publisher did not have use_sim_time set, so it ran on wall-clock time while Gazebo, RViz and the other nodes ran on simulation time. TF timestamps did not match (RViz: "timestamp is earlier than all the data in the transform cache"), which would also break AMCL and Nav2.
 Fix: Added {'use_sim_time': True} to the robot_state_publisher parameters.
 
+#3
+File: testbed_bringup/maps/testbed_world.yaml
+Problem: image: pointed to "wrong_path_testbed_world.pgm", which does not exist, so map_server could not load the map.
+Fix: Changed it to testbed_world.pgm.
+
+#4
+File: testbed_description/urdf/testbed.gazebo (lidar sensor)
+Problem: Maximum lidar range was 1.5 m in a roughly 20 m x 20 m map, so AMCL and the costmaps could barely see walls.
+Fix: Increased the range max to 12.0 m.
+
+#5
+File: testbed_description/urdf/testbed.gazebo (IMU plugin)
+Problem: Stray extra ">" after </initial_orientation_as_reference>.
+Fix: Removed the extra character.
+
