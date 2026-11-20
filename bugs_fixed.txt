@@ -25,3 +25,8 @@ File: testbed_description/urdf/testbed.gazebo (IMU plugin)
 Problem: Stray extra ">" after </initial_orientation_as_reference>.
 Fix: Removed the extra character.
 
+#6
+File: testbed_bringup/CMakeLists.txt
+Problem: Only the launch directory was installed, so the maps directory never reached install/ and map_server failed with "bad file" when loading testbed_world.yaml.
+Fix: Added maps to the install(DIRECTORY ...) list.
+
