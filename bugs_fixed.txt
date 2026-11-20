@@ -1,0 +1,7 @@
+Bug log - Ansh
+
+#1
+File: testbed_description/CMakeLists.txt (line 23)
+Problem: ament_package was called without parentheses, so CMake failed with a parse error and the workspace build aborted.
+Fix: Changed it to ament_package().
+
