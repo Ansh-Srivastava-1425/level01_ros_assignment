@@ -30,3 +30,12 @@ File: testbed_bringup/CMakeLists.txt
 Problem: Only the launch directory was installed, so the maps directory never reached install/ and map_server failed with "bad file" when loading testbed_world.yaml.
 Fix: Added maps to the install(DIRECTORY ...) list.
 
+
+#7
+File: testbed_description/urdf/testbed.gazebo (control plugin)
+Problem: Loaded libgazebo_ros_control.so, which does not exist in ROS 2 Humble (ROS 1 leftover), so Gazebo could not load it.
+Fix: Removed the plugin. The diff-drive plugin handles motion.
+
+Additional hardening (not planted bugs):
+- testbed_gazebo/CMakeLists.txt: models/ directory was not installed; added.
+- testbed_gazebo/package.xml: added missing exec_depend on gazebo_ros.

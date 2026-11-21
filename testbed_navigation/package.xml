@@ -16,11 +16,9 @@
   <depend>nav2_controller</depend>
   <depend>nav2_bt_navigator</depend>
   <depend>nav2_behaviors</depend>
-  <depend>nav2_waypoint_follower</depend>
-  <depend>nav2_smoother</depend>
-  <depend>nav2_velocity_smoother</depend>
-  <depend>nav2_collision_monitor</depend>
-  <depend>nav2_bringup</depend>
+  <depend>nav2_navfn_planner</depend>
+  <depend>dwb_core</depend>
+  <depend>launch_ros</depend>
   <depend>rviz2</depend>
 
   <test_depend>ament_lint_auto</test_depend>
